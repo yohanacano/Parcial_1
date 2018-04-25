@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - miércoles-abril-25-2018   
+-- Archivo creado  - miÃ©rcoles-abril-25-2018   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Table CUSTOMERS
@@ -51,6 +51,15 @@
     FROM SALESMAN S
     INNER JOIN CUSTOMERS C ON S.ID= C.SALESMAN_ID
     WHERE S.COMMISSION > 12
+--------------------------------------------------------
+--  DDL for View VIEW_3
+--------------------------------------------------------
+
+  CREATE OR REPLACE VIEW "EJERCICIOS"."VIEW_3" ("CUSTOMER_NAME", "COUNTRY", "ORDER_NUMBER", "ORDER_DATE", "ORDER_AMOUNT") AS 
+  SELECT C.NAME AS CUSTOMER_NAME, C.COUNTRY, O.ID AS ORDER_NUMBER, O.ORDER_DATE, O.AMOUNT AS ORDER_AMOUNT 
+    FROM CUSTOMERS C
+    INNER JOIN ORDERS O ON C.ID= O.CUSTOMER_ID
+    ORDER BY O.ORDER_DATE ASC
 --------------------------------------------------------
 --  DDL for Index SYS_C007673
 --------------------------------------------------------
